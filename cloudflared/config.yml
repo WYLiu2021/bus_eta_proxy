@@ -1,0 +1,6 @@
+tunnel: hkbus-proxy
+credentials-file: /etc/cloudflared/hkbus-proxy.json
+ingress:
+  - hostname: subdomain.yourdomain.com
+    service: http://backend:8000
+  - service: http_status:404
