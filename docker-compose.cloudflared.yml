@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    environment:
+      - TZ=Asia/Hong_Kong
+    expose:
+      - "8000"
+
+  cloudflared:
+    image: cloudflare/cloudflared:2025.7.0
+    restart: unless-stopped
+    depends_on:
+      - backend
+    volumes:
+      - ./cloudflared:/etc/cloudflared
+    command: ["tunnel", "run", "--config", "/etc/cloudflared/config.yml", "hkbus-proxy"]
+    # NOTE: replace 'hkbus-proxy' with the tunnel name you created
