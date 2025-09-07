@@ -1,0 +1,14 @@
+name: bus_eta_flutter
+description: A simple Flutter client for the HK Bus ETA proxy
+publish_to: 'none'
+version: 0.0.1
+environment:
+  sdk: '>=2.18.0 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^0.14.0
+
+flutter:
+  uses-material-design: true
